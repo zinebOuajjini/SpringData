@@ -13,11 +13,18 @@ import javax.persistence.GenerationType;
 @Entity
 @Table(name = "Etudiant")
 public class Etudiant  implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long Id;
+
 	@Column(name="nom")
 	private String nom;
+	
 	@Column(name="dateNaissance")
 	private Date dateNaissance;
 	
@@ -26,7 +33,7 @@ public class Etudiant  implements Serializable{
 		
 	}
 
-	public Etudiant(String nom, Date dateNaissance, String email, String photo) {
+	public Etudiant(String nom, Date dateNaissance) {
 		
 		this.nom = nom;
 		this.dateNaissance = dateNaissance;
@@ -47,6 +54,14 @@ public class Etudiant  implements Serializable{
 
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
+	}
+	
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
 	}
 
 	
